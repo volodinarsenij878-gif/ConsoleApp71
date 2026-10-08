@@ -1,0 +1,28 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace Program27
+    {
+    internal class Program
+    {
+        static bool CheckDivision(int x)
+        {
+            Console.WriteLine("Метод CheckDivision вызван — деление происходит!");
+            return (x / 0 == 1); // Здесь было бы исключение
+        }
+
+        static void Main()
+        {
+            int x = 10;
+
+            // Правая часть НЕ вычисляется из-за true слева
+            bool res = true || CheckDivision(x);
+
+            Console.WriteLine($"true || CheckDivision(x) = {res}"); // True
+                                                                    // Строка «Метод CheckDivision вызван…» НЕ появится в консоли
+        }
+    }
+    }
